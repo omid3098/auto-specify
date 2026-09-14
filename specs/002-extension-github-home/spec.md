@@ -19,9 +19,16 @@
 
 - Q: Where should the dedicated first-class extension folder live, and what should it be called? → A: `extensions/speckit-orchestrator/` — a repo-root conventional pi package directory containing the extension.
 - Q: What should happen to the existing project-local copy at `.pi/extensions/speckit-orchestrator/`? → A: Delete it once the extension lives in the new package folder.
-- Q: Should install use an unpinned GitHub source or a pinned release reference? → A: Unpinned `git:github.com/<owner>/<repo>`; `pi update --extensions` pulls the newest default-branch commit.
+- Q: Should install use an unpinned GitHub source or a pinned release reference? → A: Unpinned `git:github.com/omid3098/auto-specify`; `pi update --extensions` pulls the newest default-branch commit.
 - Q: Where must the public description and install guidance live? → A: Root `README.md` plus the GitHub repository description field.
 - Q: Besides the extension folder, what must ship in the published pi package? → A: Only the extension folder, plus `README` and `LICENSE`.
+
+### Session 2026-09-15 (publish facts and verification)
+
+- Q: May I create the public GitHub repository `omid3098/auto-specify` and push this home to it on `main`? → A: Yes — the home is published at `omid3098/auto-specify` on the default branch `main`.
+- Q: Should the MIT LICENSE copyright line read `Copyright (c) 2026 Omid Saadat`? → A: Yes — the copyright holder is `Omid Saadat`.
+- Q: Once the repository is published, should the install and `pi update --extensions` run in pi on this machine (T013)? → A: Yes — install it; installing the GitHub copy into pi is in scope.
+- Q: How should the human-driven pi verification (quickstart V4–V8, tasks T014–T021 and T026) be closed out? → A: The maintainer verifies manually in a later session; the results are recorded then, and no unobserved scenario is claimed as passing.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -104,8 +111,8 @@ A GitHub visitor (or the maintainer on another machine) installs by getting the 
 - **FR-011**: Existing automated checks for the orchestrator's run rules MUST still be runnable from this home after the move.
 - **FR-012**: Constitution-only work and optional Spec Kit steps (analyze, checklist, converge, issue-export) stay out of this feature.
 - **FR-013**: Pi MUST load exactly one dedicated, first-class extension folder from this home: the repo-root conventional pi package directory `extensions/speckit-orchestrator/`. That folder MUST NOT be a hidden project-only overlay.
-- **FR-014**: Install MUST get the latest from GitHub only, using an unpinned source (`git:github.com/<owner>/<repo>`) so the default branch is the single source of truth for "latest". A local working copy of this home MUST NOT be used as the install source.
-- **FR-015**: The published pi package MUST ship only the extension folder plus `README` and `LICENSE`. Spec Kit step skills and this repository's project-only prompts MUST NOT be bundled.
+- **FR-014**: Install MUST get the latest from GitHub only, using the unpinned source `git:github.com/omid3098/auto-specify` so the default branch `main` is the single source of truth for "latest". A local working copy of this home MUST NOT be used as the install source.
+- **FR-015**: The published pi package MUST ship only the extension folder plus `README` and `LICENSE`. The `LICENSE` MUST be the MIT license with the fixed copyright holder `Omid Saadat`. Spec Kit step skills and this repository's project-only prompts MUST NOT be bundled.
 
 ### Key Entities
 
@@ -136,5 +143,7 @@ A GitHub visitor (or the maintainer on another machine) installs by getting the 
 - Spec Kit skills remain installed in the project where a run is started; this home ships the orchestrator, not a replacement Spec Kit.
 - Install is performed when no pipeline run is active.
 - The operator and maintainer are the same person in v1; there is no multi-user permission model.
+- The home is published to the public GitHub repository `omid3098/auto-specify` on `main`, and install commands in the public description and `README.md` use that exact slug.
+- Human-driven verification of installed-pi behavior (SC-002, SC-003, SC-004, SC-006) is performed manually by the maintainer after install; until it is observed and recorded, those outcomes remain unverified rather than assumed.
 - Machine-only Spec Kit pointers and similar local state stay out of the published home.
 - No new operator workflow stages, dashboards, or config surfaces are added (simplicity).
