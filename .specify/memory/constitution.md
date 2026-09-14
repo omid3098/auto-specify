@@ -1,17 +1,3 @@
-<!--
-Sync Impact Report (scratch; remove before commit)
-- Version change: (unratified template) → 1.0.0
-- Modified principles: placeholders filled (no prior named principles)
-  - [PRINCIPLE_1_NAME] → I. Spec-First Pipeline
-  - [PRINCIPLE_2_NAME] → II. Pause Only for Human Input
-  - [PRINCIPLE_3_NAME] → III. Isolated Subagent Execution
-  - [PRINCIPLE_4_NAME] → IV. Orchestrator Observability
-  - [PRINCIPLE_5_NAME] → V. Simplicity
-- Added sections: Additional Constraints; Development Workflow; Governance (from template slots)
-- Removed sections: none
-- Follow-up TODOs: none
--->
-
 # auto-specify Constitution
 
 ## Core Principles
