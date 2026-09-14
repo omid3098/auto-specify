@@ -5,7 +5,7 @@ This repository is the **home** of the Spec Kit pipeline orchestrator for
 `specify → clarify → plan → tasks → implement` unattended, and stops only when a step genuinely needs
 a human answer.
 
-> Home of the Spec Kit pipeline orchestrator for pi — install the extensions/speckit-orchestrator
+> Home of the Spec Kit pipeline orchestrator for pi — install the extensions/auto-specify
 > folder from GitHub to run Specify → Clarify → Plan → Tasks → Implement unattended.
 
 ## What gets installed
@@ -13,11 +13,11 @@ a human answer.
 The installable piece is the dedicated, first-class pi package folder:
 
 ```text
-extensions/speckit-orchestrator/     # index.ts · run.ts · gates.ts · spawn.ts · run.test.js
+extensions/auto-specify/     # index.ts · run.ts · gates.ts · spawn.ts · run.test.js
 ```
 
 - pi discovers this folder through its conventional repo-root `extensions/` directory and loads
-  `extensions/speckit-orchestrator/index.ts` as the extension entry point.
+  `extensions/auto-specify/index.ts` as the extension entry point.
 - The **repository root is not** the extension, and there is no hidden project-local overlay: this
   folder is the single source of truth. `run.test.js` ships alongside the modules but is not loaded
   as an extension.
@@ -91,7 +91,7 @@ Progress is always visible in the main session, which stays usable while a run i
 The orchestrator's run rules are covered by the checks that ship in this home:
 
 ```bash
-node --test extensions/speckit-orchestrator/run.test.js   # expect: pass 12 / fail 0
+node --test extensions/auto-specify/run.test.js   # expect: pass 12 / fail 0
 ```
 
 Requires Node ≥ 22.6 (the checks load the TypeScript modules directly via type stripping). No
